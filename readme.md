@@ -1,25 +1,25 @@
-# is-reachable [![Build Status](https://travis-ci.org/k4m4/detect-cloudflare.svg?branch=master)](https://travis-ci.org/k4m4/detect-cloudflare)
+# is-reachable [![Build Status](https://travis-ci.org/k4m4/cloudflare-detect.svg?branch=master)](https://travis-ci.org/k4m4/cloudflare-detect)
 
 > Detect whether a site is running behind Cloudflare.
 
 ## Install
 
 ```
-$ npm install --save detect-cloudflare
+$ npm install --save cloudflare-detect
 ```
 
 
 ## Usage
 
 ```js
-const detectCloudflare = require('detect-cloudflare');
+const cloudflareDetect = require('cloudflare-detect');
 
-detectCloudflare('nikolaskama.me').then(cf => {
+cloudflareDetect('nikolaskama.me').then(cf => {
 	console.log(cf);
 	//=> true
 });
 
-detectCloudflare('google.com').then(cf => {
+cloudflareDetect('google.com').then(cf => {
 	console.log(cf);
 	//=> false
 });
@@ -28,7 +28,7 @@ detectCloudflare('google.com').then(cf => {
 
 ## API
 
-### detectCloudflare(targets, [options])
+### cloudflareDetect(targets, [options])
 
 Returns a `Promise` for a `boolean` which is `true` if any of the `targets` are reachable.
 

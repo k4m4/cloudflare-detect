@@ -1,0 +1,37 @@
+{
+  "name": "detect-cloudflare",
+  "version": "1.0.0",
+  "description": "Detect whether a site is running behind Cloudflare.",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [
+    "cloudflare",
+    "detect"
+  ],
+  "files": [
+    "index.js",
+    "fetch-ips.js",
+    "ips.json"
+  ],
+  "devDependencies": {
+    "ava": "*"
+  },
+  "author": {
+    "name": "Nikolaos Kamarinakis",
+    "url": "nikolaskama.me"
+  },
+  "dependencies": {
+    "arrify": "^1.0.1",
+    "humanize-url": "^1.0.1",
+    "ip-address": "^5.8.9",
+    "is-ip": "^2.0.0",
+    "node-fetch": "^2.0.0",
+    "p-any": "^1.1.0",
+    "p-timeout": "^2.0.1",
+    "pify": "^3.0.0",
+    "router-ips": "^1.0.0"
+  }
+}

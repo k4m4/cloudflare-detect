@@ -3,6 +3,14 @@
   "version": "1.0.1",
   "description": "Detect whether a site is running behind Cloudflare.",
   "license": "MIT",
+  "repository": "k4m4/cloudflare-detect",
+  "author": {
+    "name": "Nikolaos Kamarinakis",
+    "url": "nikolaskama.me"
+  },
+  "engines": {
+    "node": ">=4"
+  },
   "main": "index.js",
   "scripts": {
     "test": "ava"
@@ -18,10 +26,6 @@
   ],
   "devDependencies": {
     "ava": "*"
-  },
-  "author": {
-    "name": "Nikolaos Kamarinakis",
-    "url": "nikolaskama.me"
   },
   "dependencies": {
     "arrify": "^1.0.1",

@@ -1,5 +1,5 @@
 {
-  "name": "detect-cloudflare",
+  "name": "cloudflare-detect",
   "version": "1.0.0",
   "description": "Detect whether a site is running behind Cloudflare.",
   "license": "MIT",

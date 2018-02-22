@@ -1,4 +1,4 @@
-# is-reachable [![Build Status](https://travis-ci.org/k4m4/cloudflare-detect.svg?branch=master)](https://travis-ci.org/k4m4/cloudflare-detect)
+# cloudflare-detect [![Build Status](https://travis-ci.org/k4m4/cloudflare-detect.svg?branch=master)](https://travis-ci.org/k4m4/cloudflare-detect)
 
 > Detect whether a site is running behind Cloudflare.
 

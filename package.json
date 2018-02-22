@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-detect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Detect whether a site is running behind Cloudflare.",
   "license": "MIT",
   "repository": "k4m4/cloudflare-detect",

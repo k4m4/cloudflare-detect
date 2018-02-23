@@ -5,7 +5,7 @@
 ## Install
 
 ```
-$ npm install --save cloudflare-detect
+~ ❯❯❯ npm install --save cloudflare-detect
 ```
 
 

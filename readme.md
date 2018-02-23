@@ -1,5 +1,4 @@
 # cloudflare-detect [![Build Status](https://travis-ci.org/k4m4/cloudflare-detect.svg?branch=master)](https://travis-ci.org/k4m4/cloudflare-detect)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fk4m4%2Fcloudflare-detect.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fk4m4%2Fcloudflare-detect?ref=badge_shield)
 
 > Detect whether a site is running behind Cloudflare.
 
@@ -59,5 +58,3 @@ Timeout in milliseconds after which a request is considered failed. Default: `50
 ## License
 
 MIT © [Nikolaos Kamarinakis](https://nikolaskama.me/)
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fk4m4%2Fcloudflare-detect.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fk4m4%2Fcloudflare-detect?ref=badge_large)

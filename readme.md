@@ -30,7 +30,7 @@ cloudflareDetect('google.com').then(cf => {
 
 ### cloudflareDetect(targets, [options])
 
-Returns a `Promise` for a `boolean` which is `true` if any of the `targets` are reachable.
+Returns a `Promise` for a `boolean` which is `true` if any of the `targets` are running behind Cloudflare.
 
 #### targets
 

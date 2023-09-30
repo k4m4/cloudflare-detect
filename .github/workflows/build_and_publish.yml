@@ -21,8 +21,11 @@ jobs:
         with:
           node-version: "${{ matrix.node-version }}"
 
+      - name: Install Dependencies
+        run: npm ci
+
       - name: Run Test
-        run: npm run test
+        run: npm test
 
   build-and-publish:
     runs-on: ubuntu-latest

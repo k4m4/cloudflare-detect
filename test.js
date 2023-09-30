@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import m from './index.js';
 
 test('hostname', async t => {
 	t.true(await m('cloudflare.com'));

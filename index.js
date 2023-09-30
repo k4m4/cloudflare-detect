@@ -1,60 +1,78 @@
-'use strict'
-const fs          = require('fs')
-const path        = require('path')
-const dns         = require('dns');
-const fetch       = require('node-fetch');
-const routerIPs   = require('router-ips');
-const arrify      = require('arrify');
-const pAny        = require('p-any');
-const net         = require('net');
-const pify        = require('pify');
-const pTimeout    = require('p-timeout');
-const isIp        = require('is-ip');
-const humanizeUrl = require('humanize-url');
-const Address4    = require('ip-address').Address4;
-const Address6    = require('ip-address').Address6;
+import routerIPs from 'router-ips';
+import net from 'net';
+import {promises as dns} from 'dns';
+import humanizeUrl from 'humanize-url';
+import { Address4, Address6, AddressError } from 'ip-address';
+import { loadIPs } from './ip-helpers.js';
 
-const fetchIPs    = require('./fetch-ips')
-fetchIPs.fetch();
+const ips = loadIPs().map(intoAddress);
 
-const listPath = path.join(__dirname, 'ips.json')
-const ips = JSON.parse(fs.readFileSync(listPath, 'utf8')).map(intoAddress)
+function intoAddress(str) {
+    str = str.trim();
+    let ip;
 
-function intoAddress (str) {
-  str = str.trim();
-  let ip = new Address6(str);
-  if (ip.v4 && !ip.valid) {
-    ip = new Address4(str);
-  }
-  if (!ip.valid) return
-  return ip;
-}
-
-// github.com/sindresorhus/is-reachable/blob/master/index.js
-function getAddress (hostname) {
-  if (net.isIP(hostname)) {
-    return Promise.resolve(hostname);
-  }
-  return pify(dns.lookup)(hostname);
-}
-
-function isCloudflare (target) {
-  return getAddress(target).then(address => {
-    if (!address || routerIPs.has(address)) {
-      return false;
+    try {
+      ip = new Address6(str);
+    } catch (e) {
+      if (!(e instanceof AddressError)) {
+        throw e
+      }
     }
-    const target = intoAddress(address);
-    if (!target) {
-      return false
+
+    if (!ip) {
+      try {
+        ip = new Address4(str);
+      } catch (e) {
+        if (!(e instanceof AddressError)) {
+          throw e
+        }
+      }
     }
-    return ips.some((cf) => target.isInSubnet(cf));
-  }).catch(() => false);
+
+    return ip;
 }
 
-module.exports = (dests, opts) => {
-  opts = opts || {};
-  opts.timeout = typeof opts.timeout === 'number' ? opts.timeout : 5000;
+// pulled from:
+// https://github.com/sindresorhus/is-reachable/blob/master/index.js
+const getAddress = async hostname => net.isIP(hostname) ? hostname : (await dns.lookup(hostname)).address;
 
-  const p = pAny(arrify(humanizeUrl(dests)).map(isCloudflare));
-  return pTimeout(p, opts.timeout).catch(() => false);
+async function isCloudflare(target) {
+  console.log(await getAddress(target))
+    try {
+      const address = await getAddress(target);
+      console.log(address)
+        if (!address || routerIPs.has(address)) {
+            return false;
+        }
+        const resolvedTarget = intoAddress(address);
+        if (!resolvedTarget) {
+            return false;
+        }
+        return ips.some((cf) => resolvedTarget.isInSubnet(cf));
+    } catch (error) {
+        return false;
+    }
+}
+
+export default async (dests, opts = {}) => {
+    opts.timeout = typeof opts.timeout === 'number' ? opts.timeout : 5000;
+
+    if (!Array.isArray(dests)) {
+        dests = [dests];
+    }
+
+    dests = dests.map(url => humanizeUrl(url));
+
+    const promises = dests.map(isCloudflare);
+
+    // create a timeout promise to race the cloudflare resolution against
+    const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Timeout')), opts.timeout);
+    });
+
+    try {
+        return await Promise.race([timeoutPromise, ...promises]);
+    } catch (error) {
+        return false;
+    }
 };

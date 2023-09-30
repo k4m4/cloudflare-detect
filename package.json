@@ -22,8 +22,8 @@
   ],
   "files": [
     "index.js",
-    "fetch-ips.js",
-    "ips.json"
+    "ips.json",
+    "ip-helpers.js"
   ],
   "devDependencies": {
     "ava": "^5.3.1"

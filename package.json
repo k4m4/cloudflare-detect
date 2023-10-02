@@ -8,8 +8,14 @@
     "name": "Nikolaos Kamarinakis",
     "url": "nikolaskama.me"
   },
+  "contributors": [
+    {
+      "name": "Michael Bianco",
+      "url": "https://mikebian.co/"
+    }
+  ],
   "engines": {
-    "node": ">=6"
+    "node": ">=16"
   },
   "main": "index.js",
   "type": "module",

@@ -37,10 +37,8 @@ function intoAddress(str) {
 const getAddress = async hostname => net.isIP(hostname) ? hostname : (await dns.lookup(hostname)).address;
 
 async function isCloudflare(target) {
-  console.log(await getAddress(target))
     try {
       const address = await getAddress(target);
-      console.log(address)
         if (!address || routerIPs.has(address)) {
             return false;
         }

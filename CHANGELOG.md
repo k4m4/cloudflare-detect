@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/k4m4/cloudflare-detect/compare/v1.1.0...v2.0.0) (2023-10-08)
+
+
+### Features
+
+* badges on docs ([a12765a](https://github.com/k4m4/cloudflare-detect/commit/a12765a8081ea9fb675cdccda4134bfd819556dd))
+
+
+### BREAKING CHANGES
+
+* trying to use angular preset in changelog generator to generate a 2.x
+
+
+
 # [1.1.0](https://github.com/k4m4/cloudflare-detect/compare/v1.0.8...v1.1.0) (2023-10-08)
 
 

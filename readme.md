@@ -1,4 +1,4 @@
-# cloudflare-detect [![Build Status](https://travis-ci.org/k4m4/cloudflare-detect.svg?branch=master)](https://travis-ci.org/k4m4/cloudflare-detect)
+# cloudflare-detect ![Last version](https://img.shields.io/github/tag/k4m4/cloudflare-detect.svg?style=flat-square)
 
 Detect whether a site is running behind Cloudflare.
 

@@ -1,4 +1,4 @@
-# cloudflare-detect ![Last version](https://img.shields.io/github/tag/k4m4/cloudflare-detect.svg?style=flat-square)
+# cloudflare-detect ![Last version](https://img.shields.io/github/tag/k4m4/cloudflare-detect.svg?style=flat-square) [![NPM Status](https://img.shields.io/npm/dm/cloudflare-detect.svg?style=flat-square)](https://www.npmjs.org/package/cloudflare-detect) ![github actions status](https://github.com/k4m4/cloudflare-detect/actions/workflows/build_and_publish.yml/badge.svg)
 
 Detect whether a site is running behind Cloudflare.
 

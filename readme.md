@@ -1,13 +1,14 @@
 # cloudflare-detect [![Build Status](https://travis-ci.org/k4m4/cloudflare-detect.svg?branch=master)](https://travis-ci.org/k4m4/cloudflare-detect)
 
-> Detect whether a site is running behind Cloudflare.
+Detect whether a site is running behind Cloudflare.
 
 ## Install
 
-```
-~ ❯❯❯ npm install --save cloudflare-detect
+```shell
+npm install --save cloudflare-detect
 ```
 
+Note that versions > 2 of this package are ESM-only. Use 1.x for CommonJS support.
 
 ## Usage
 
@@ -50,10 +51,6 @@ Timeout in milliseconds after which a request is considered failed. Default: `50
 
 - [cloudflare-ip](https://github.com/danneu/cloudflare-ip) - a lot of the code for verifying that the host's IP address is within Cloudflare's range has been adapted from this repo (which doesn't seem to be maintained anymore) by [danneu](https://github.com/danneu).
 - [is-reachable](https://github.com/sindresorhus/is-reachable) - some of the IP verification & DNS lookup code, as well as the format of the readme file, has been adapted from this repo by [sindresorhus](https://github.com/sindresorhus).
-
-## Related
-
-- [cf-detect.now](https://github.com/k4m4/cf-detect.now) - A minimal service to check whether a site is running behind Cloudflare.
 
 ## License
 
